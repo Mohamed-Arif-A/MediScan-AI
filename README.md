@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+🧠 MediScan AI – Facial Skin Health Advisor
+MediScan AI is an AI-powered web application that helps users detect and understand various facial skin conditions by analyzing uploaded images. Built with a lightweight deep learning model and a fast API-driven backend, MediScan AI aims to make early skin health awareness accessible and reliable through technology.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🌟 Key Features
+📷 Image Upload – Upload a facial image directly from your device
 
-## Available Scripts
+🧠 AI-Based Diagnosis – Detects 8 facial skin conditions using a trained MobileNetV2 model
 
-In the project directory, you can run:
+⚡ Real-Time Prediction – Fast and responsive results via FastAPI backend
 
-### `npm start`
+💻 User-Friendly UI – React-based frontend for a smooth user experience
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📊 Accurate Classification – Powered by TensorFlow and fine-tuned on custom skin dataset
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+🧬 Skin Conditions Covered
+MediScan AI can classify the following 8 facial skin conditions:
 
-### `npm test`
+Acne
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Blackheads
 
-### `npm run build`
+Whiteheads
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Spots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Scars
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Dry Skin
 
-### `npm run eject`
+Oily Skin
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Clear (Healthy) Skin
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🧰 Tech Stack
+Layer	Tools Used
+Frontend	React, HTML5, CSS3
+Backend	FastAPI (Python 3.10)
+Model	TensorFlow, Keras, MobileNetV2
+Others	Google Colab (training), Marked.js
