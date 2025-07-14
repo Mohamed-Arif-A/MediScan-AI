@@ -1,39 +1,62 @@
-🧠 MediScan AI – Facial Skin Health Advisor
-MediScan AI is an AI-powered web application that helps users detect and understand various facial skin conditions by analyzing uploaded images. Built with a lightweight deep learning model and a fast API-driven backend, MediScan AI aims to make early skin health awareness accessible and reliable through technology.
+# 🧠 MediScan AI – Facial Skin Health Advisor
 
-🌟 Key Features
-📷 Image Upload – Upload a facial image directly from your device
+**MediScan AI** is an intelligent web application that analyzes facial skin and identifies common skin conditions using deep learning.  
+It leverages a lightweight **MobileNetV2** model and a fast **FastAPI** backend to provide instant, high-accuracy results.  
+With a modern React frontend, MediScan AI offers an accessible and reliable tool for early skin health awareness.
 
-🧠 AI-Based Diagnosis – Detects 8 facial skin conditions using a trained MobileNetV2 model
+---
 
-⚡ Real-Time Prediction – Fast and responsive results via FastAPI backend
+## 🌟 Key Features
 
-💻 User-Friendly UI – React-based frontend for a smooth user experience
+- 📷 **Image Upload** – Upload facial images directly from your device
+- 🧠 **AI-Powered Diagnosis** – Detects 8 facial skin conditions using MobileNetV2
+- ⚡ **Real-Time Prediction** – FastAPI backend provides instant results
+- 💻 **Responsive Frontend** – Built with React for smooth user experience
+- 📊 **High Accuracy** – Trained on custom, balanced skin condition dataset
 
-📊 Accurate Classification – Powered by TensorFlow and fine-tuned on custom skin dataset
+---
 
-🧬 Skin Conditions Covered
-MediScan AI can classify the following 8 facial skin conditions:
+## 🧬 Skin Conditions Covered
 
-Acne
+MediScan AI can identify the following skin conditions:
 
-Blackheads
+- 🟤 **Acne**  
+- ⚫ **Blackheads**  
+- ⚪ **Whiteheads**  
+- 🔴 **Spots**  
+- 🕳️ **Scars**  
+- 🌾 **Dry Skin**  
+- 💧 **Oily Skin**  
+- ✅ **Clear (Healthy) Skin**
 
-Whiteheads
+---
 
-Spots
+## 🧰 Tech Stack
 
-Scars
+| Layer        | Tools Used                               |
+|--------------|-------------------------------------------|
+| **Frontend** | React, HTML5, CSS3                        |
+| **Backend**  | FastAPI (Python 3.10)                     |
+| **Model**    | TensorFlow, Keras, MobileNetV2            |
+| **Training** | Google Colab                              |
+| **Markdown Rendering** | Marked.js                      |
 
-Dry Skin
+---
 
-Oily Skin
+## 🗂 Project Structure
 
-Clear (Healthy) Skin
-
-🧰 Tech Stack
-Layer	Tools Used
-Frontend	React, HTML5, CSS3
-Backend	FastAPI (Python 3.10)
-Model	TensorFlow, Keras, MobileNetV2
-Others	Google Colab (training), Marked.js
+```bash
+MediScan-AI/
+├── frontend/             # React frontend
+│   └── src/
+│       └── App.jsx       # Image upload & display
+│
+├── backend/              # FastAPI backend
+│   └── main.py           # Prediction endpoint
+│
+├── model/                # Trained Keras model
+│   └── facial_skin_model.keras
+│
+├── dataset/              # Organized dataset (local, not uploaded)
+│
+└── README.md             # Project documentation
