@@ -1,0 +1,7 @@
+# Ignore virtual environments
+.venv/
+backend/venv*/
+__pycache__/=
+
+# Node modules (if using React)
+node_modules/

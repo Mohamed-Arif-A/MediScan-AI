@@ -1,0 +1,137 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background: linear-gradient(to right, #e3f2fd, #ede7f6);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+.App {
+  background-color: #ffffff;
+  padding: 35px 45px;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  animation: fadeIn 0.8s ease-in-out;
+  border: 1px solid #e0e0e0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  color: #1976d2;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+label {
+  font-size: 1rem;
+  color: #333;
+}
+
+select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #b0bec5;
+  margin-left: 10px;
+  background-color: #f5faff;
+  font-size: 0.95rem;
+  transition: border 0.3s;
+}
+
+select:hover {
+  border-color: #7986cb;
+}
+
+.spacer {
+  height: 20px;
+}
+
+input[type="file"] {
+  font-size: 0.95rem;
+  padding: 10px;
+  border: 1px solid #cfd8dc;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #fafafa;
+}
+
+button {
+  padding: 14px 20px;
+  background: linear-gradient(to right, #42a5f5, #7e57c2);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 5px 18px rgba(66, 165, 245, 0.3);
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: linear-gradient(to right, #1e88e5, #5e35b1);
+}
+
+button:disabled {
+  background: #cfd8dc;
+  cursor: not-allowed;
+}
+
+h2 {
+  color: #303f9f;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.advice-box {
+  background-color: #f3f6ff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(63, 81, 181, 0.08);
+  margin-top: 15px;
+  color: #444;
+  line-height: 1.6;
+  font-size: 1rem;
+  overflow-wrap: break-word;
+  max-height: 300px;
+  overflow-y: auto;
+  border-left: 5px solid #42a5f5;
+}
+
+.advice-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.advice-box::-webkit-scrollbar-thumb {
+  background-color: #90caf9;
+  border-radius: 10px;
+}
+
+@media (max-width: 540px) {
+  .App {
+    padding: 25px 20px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+}
