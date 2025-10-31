@@ -1,0 +1,146 @@
+
+{
+  "entities": {
+    "Need": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Need",
+      "type": "object",
+      "description": "Represents a request for resources from an NGO.",
+      "properties": {
+        "organizationId": {
+          "type": "string",
+          "description": "The UID of the NGO user who created the need."
+        },
+        "orgName": {
+          "type": "string",
+          "description": "The name of the organization requesting the need."
+        },
+        "resourceType": {
+          "type": "string",
+          "description": "The type of resource needed (e.g., Food, Clothes, Medicine)."
+        },
+        "quantity": {
+          "type": "number",
+          "description": "The quantity of the resource needed."
+        },
+        "location": {
+          "type": "object",
+          "description": "Geographic location where the resource is needed.",
+          "properties": {
+            "latitude": { "type": "number" },
+            "longitude": { "type": "number" }
+          },
+          "required": ["latitude", "longitude"]
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the need."
+        },
+        "status": {
+          "type": "string",
+          "description": "The current status of the need.",
+          "enum": ["open", "matched", "fulfilled"]
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "The date and time the need was created.",
+          "format": "date-time"
+        },
+        "matchedDonorId": {
+            "type": "string",
+            "description": "The UID of the donor who fulfilled the need."
+        }
+      },
+      "required": [
+        "organizationId",
+        "orgName",
+        "resourceType",
+        "quantity",
+        "location",
+        "description",
+        "status",
+        "createdAt"
+      ]
+    },
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents an application user, either an NGO or a Donor.",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Unique identifier for the User, from Firebase Auth."
+        },
+        "name": {
+            "type": "string",
+            "description": "The user's full name."
+        },
+        "email": {
+          "type": "string",
+          "description": "The user's email address.",
+          "format": "email"
+        },
+        "role": {
+          "type": "string",
+          "description": "The role of the user, either 'ngo', 'donor', or 'admin'.",
+          "enum": ["ngo", "donor", "admin"]
+        },
+        "isVerified": {
+          "type": "boolean",
+          "description": "Whether the NGO has been verified by an admin. Not applicable to donors."
+        },
+        "location": {
+          "type": "object",
+          "description": "The user's location stored as a GeoPoint.",
+          "properties": {
+            "latitude": { "type": "number" },
+            "longitude": { "type": "number" }
+          },
+          "required": ["latitude", "longitude"]
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "The date and time the user was created.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "uid",
+        "name",
+        "email",
+        "role",
+        "createdAt"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/backend/entities/UserProfile"
+          },
+          "description": "Stores user profile information, including their role and location. The 'userId' is the Firebase Auth UID. Users can only read and write their own profile."
+        }
+      },
+      {
+        "path": "/needs/{needId}",
+        "definition": {
+          "entityName": "Need",
+          "schema": {
+            "$ref": "#/backend/entities/Need"
+          },
+          "description": "Stores all resource requests from NGOs. NGOs can create needs. Donors can read and update the status of needs."
+        }
+      }
+    ]
+  }
+}

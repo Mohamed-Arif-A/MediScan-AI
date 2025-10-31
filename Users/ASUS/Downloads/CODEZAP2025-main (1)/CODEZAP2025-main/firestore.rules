@@ -1,0 +1,65 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allows all reads and writes for the next 30 days
+    match /{document=**} {
+      allow read, write: if request.time < timestamp.date(2025, 12, 1);
+    }
+
+    /**
+     * @description Secure user profiles. Only the authenticated user can read/write their own profile.
+     * Admins are allowed to list all users for management purposes.
+     */
+    match /users/{userId} {
+      function isSignedIn() {
+        return request.auth != null;
+      }
+
+      function isOwner(userId) {
+        return request.auth.uid == userId;
+      }
+      
+      // Check if the requesting user is an admin by reading their own profile.
+      function isAdmin() {
+          return exists(/databases/$(database)/documents/users/$(request.auth.uid))
+                 && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+      }
+
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+
+      allow create: if isSignedIn() && request.auth.uid == userId;
+      allow update: if isOwner(userId) || (isAdmin() && request.resource.data.diff(resource.data).changedKeys().hasOnly(['isVerified']));
+      allow delete: if isOwner(userId);
+    }
+
+    /**
+     * @description Secure needs collection. Publicly readable, but writes are restricted.
+     */
+    match /needs/{needId} {
+        function isSignedIn() {
+            return request.auth != null;
+        }
+
+        function isOwner(organizationId) {
+            return isSignedIn() && request.auth.uid == organizationId;
+        }
+
+        // Checks if the user performing the request is the original creator of the document.
+        function isExistingOwner() {
+            return isSignedIn() && resource.data.organizationId == request.auth.uid;
+        }
+        
+        // Checks if the user is the donor who has been matched to this need.
+        function isMatchedDonor() {
+            return isSignedIn() && request.resource.data.matchedDonorId == request.auth.uid;
+        }
+
+        allow get, list: if true;
+
+        allow create: if isOwner(request.resource.data.organizationId);
+        allow update: if isExistingOwner() || isMatchedDonor();
+        allow delete: if isExistingOwner();
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "placeholderImages": [
+    {
+      "id": "ngo-portal",
+      "description": "A group of volunteers working together.",
+      "imageUrl": "https://images.unsplash.com/photo-1706806595208-0e823368f240?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx2b2x1bnRlZXJzJTIwY29tbXVuaXR5fGVufDB8fHx8MTc2MTgzMjk4MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "volunteers community"
+    },
+    {
+      "id": "donor-portal",
+      "description": "Hands holding a box of donated goods.",
+      "imageUrl": "https://images.unsplash.com/photo-1615461066159-fea0960485d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkb25hdGlvbiUyMGdpdmluZ3xlbnwwfHx8fDE3NjE4NDI2NzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "donation giving"
+    }
+  ]
+}
